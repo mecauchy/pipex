@@ -27,7 +27,6 @@ void    executer(char *cmd, char **env)
     while (path[i])
     {
         cmd_path = ft_strjoin(path[i], cmd);
-        execve(cmd_path, cmd, env);
         i++;
     }
     // cherche la cmd //
@@ -114,11 +113,6 @@ void    second_cmd_exec(int *fd, char **av, char **env)
     executer(av[3], env);
 }
 
-void    parent_process(char **av, char **env, char *fd)
-{
-    
-}
-
 void    pipex(int ac, char **av, char **env)
 {
     int     fd[2];
@@ -145,10 +139,8 @@ void    pipex(int ac, char **av, char **env)
             //child2 process
             second_cmd_exec(fd, av, env);
         waitpid(pid2, NULL, 0);
-        parent_process(av, env, fd);
         /*else
         {
-            //parent process
             waitpid(pid2, &status, 0);
         }
         */
