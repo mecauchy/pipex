@@ -113,6 +113,8 @@ void    second_cmd_exec(int *fd, char **av, char **env)
     executer(av[3], env);
 }
 
+/* edit with structure / liste chainee */
+
 void    pipex(int ac, char **av, char **env)
 {
     int     fd[2];
